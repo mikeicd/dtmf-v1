@@ -1,5 +1,7 @@
 import numpy as np
 
+A = np.array([[0.8, 0.2, 0.0], [0.2, 0.0, 0.8], [0.7, 0.2, 0.1]])
+
 
 def markov_move(A, s):
     n, u, accum = 0, np.random.uniform(0, 1), A[s][0]
@@ -11,17 +13,33 @@ def markov_move(A, s):
     return n
 
 
-A = np.array([[0.7, 0.2, 0.1], [0.3, 0.4, 0.3], [0.2, 0.3, 0.5]])
+def principal():
+    runs = 1000
+    s = 0
+    tam = A[0].size
+    vet_cont = np.zeros(tam)
 
-runs = 1000
+    for i in range(runs):
+        s = markov_move(A, s)
+        vet_cont[s] += 1
 
-s = 0
-tam = A[0].size
-vet_cont = np.zeros(tam)
+    for i in range(tam):
+        print(vet_cont[i] / runs)
 
-for i in range(runs):
-    s = markov_move(A,s)
-    vet_cont += 1
 
-for i in range(tam):
-    print(vet_cont[i]/runs)
+def questaob():
+    runs = 1000
+    tam = A[0].size
+    vet_cont = np.zeros(tam)
+    ocorrencia = 0
+
+    for i in range(runs):
+        s = 2
+        for j in range(3):
+            s = markov_move(A, s)
+            if s == 1:
+                ocorrencia += 1
+    
+    print(f'Probabilidade = {ocorrencia/runs}')
+    
+questaob()
