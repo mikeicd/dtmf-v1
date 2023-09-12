@@ -28,7 +28,7 @@ def principal():
 
 
 def questaob():
-    runs = 1000
+    runs = 100000
     tam = A[0].size
     vet_cont = np.zeros(tam)
     ocorrencia = 0
@@ -37,8 +37,8 @@ def questaob():
         s = 2
         for j in range(3):
             s = markov_move(A, s)
-            if s == 1:
-                ocorrencia += 1
+        if s == 1:
+            ocorrencia += 1
     
     print(f'Probabilidade = {ocorrencia/runs}')
     
