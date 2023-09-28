@@ -41,5 +41,23 @@ def questaob():
             ocorrencia += 1
     
     print(f'Probabilidade = {ocorrencia/runs}')
+
+def parte2():
+    runs = 100000
+    passo = 0.2
+    segundos = runs*passo
+    tam = A[0].size
+    vet_cont = np.zeros(tam)
+    soma = 0
+    tranf_bts = [10, 100, 1000]
+    s = 0
+    for i in range(runs):
+        s = markov_move(A, s)
+        soma += tranf_bts[s]
     
-questaob()
+    print(f'Vazão = {soma/segundos}')
+
+    
+#questaob()
+
+parte2()
