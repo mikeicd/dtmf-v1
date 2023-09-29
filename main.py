@@ -57,7 +57,33 @@ def parte2():
     
     print(f'Vazão = {soma/segundos}')
 
+
+def parte3():
+    # Variável para rastrear o tempo total 
+    total_time_in_state  = 0
+    runs = 100000
+    passo = 0.2
+    segundos = runs * passo
+    tam = A[0].size
+    vet_cont = np.zeros(tam)
+    s = 0
+    # Variável para rastrear a duração do estado de transmissão de pacote de tamanho 1000
+    state_duration = 0  
+
+    for i in range(runs):
+        s = markov_move(A, s)
+        state_duration += 1
+        vet_cont[s] += 1
+        # Se o estado atual é o estado de transmissão de pacote de tamanho 1000
+        if s == 2:  
+            # Adiciona o tempo de passo no tempo total no estado
+            total_time_in_state += passo  
+    print(f'{vet_cont[0]} / {vet_cont[1]} / {vet_cont[2]}')
+    # Cálculo da vazão
+    vazao = vet_cont[2] * 1000 / state_duration  
+    print(f'Vazão = {vazao}')
+    print(f'Tempo médio de estadia no estado de transmissão de pacote de tamanho 1000 = {total_time_in_state / vet_cont[2]} épocas')
     
 #questaob()
 
-parte2()
+parte3()
