@@ -89,5 +89,20 @@ stateDiagram-v2
 - Faça uma modificação do simulador original (sem sleep) para computar o tempo médio de estadia (em termos de épocas) no estado transmissão de pacote de tamanho 1000. Compare com o valor teórico.  
 
 
+- Realizamos o experimento utilizando a função `parte3()` do código [main.py](./main.py) e obtivemos os seguintes valores:
 
+```
+Vazão = 148.23
+Tempo médio de estadia no estado de transmissão de pacote de tamanho 1000 = 0.1999999999999659 épocas
+
+Vazão = 148.87
+Tempo médio de estadia no estado de transmissão de pacote de tamanho 1000 = 0.19999999999996526 épocas
+
+Vazão = 149.06
+Tempo médio de estadia no estado de transmissão de pacote de tamanho 1000 = 0.1999999999999651 épocas
+```
+
+**Para calcular o tempo médio de estadia:**
+
+> `Tempo médio de estadia = (Tempo no estado de transmissão de 1000) / (Taxa de saída do estado de transmissão de 1000)`
 

@@ -78,7 +78,7 @@ def parte3():
         if s == 2:  
             # Adiciona o tempo de passo no tempo total no estado
             total_time_in_state += passo  
-    print(f'{vet_cont[0]} / {vet_cont[1]} / {vet_cont[2]}')
+    #print(f'{vet_cont[0]} / {vet_cont[1]} / {vet_cont[2]}')
     # Cálculo da vazão
     vazao = vet_cont[2] * 1000 / state_duration  
     print(f'Vazão = {vazao}')
